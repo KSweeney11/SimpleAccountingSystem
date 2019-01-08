@@ -1,0 +1,85 @@
+﻿<Window x:Class="GUI.GLSetup"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GUI"
+        mc:Ignorable="d"
+        Title="GL Account Setup" Height="375" Width="500" WindowStartupLocation="CenterScreen"
+        Style="{StaticResource defaultStyle}">
+  <Window.Resources>
+  </Window.Resources>
+  <Grid>
+    <Grid.RowDefinitions>
+      <RowDefinition Height="35" />
+      <RowDefinition />
+      <RowDefinition Height="35" />
+    </Grid.RowDefinitions>
+    <Grid>
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition />
+        <ColumnDefinition />
+        <ColumnDefinition />
+        <ColumnDefinition />
+        <ColumnDefinition />
+      </Grid.ColumnDefinitions>
+      <Button x:Name="btFirst" Grid.Row="0" Margin="5" Grid.Column="0" Click="BtFirst_Click"
+              AutomationProperties.Name="First">
+        First
+      </Button>
+      <Button x:Name="btPrevious" Grid.Row="0" Margin="5" Grid.Column="1" Click="BtPrevious_Click">Previous</Button>
+      <Button x:Name="btSearch" Grid.Row="0" Margin="5" Grid.Column="2" Click="BtSearch_Click">Search</Button>
+      <Button x:Name="btNext" Grid.Row="0" Margin="5" Grid.Column="3" Click="BtNext_Click">Next</Button>
+      <Button x:Name="btLast" Grid.Row="0" Margin="5" Grid.Column="4" Click="BtLast_Click">Last</Button>
+    </Grid>
+    <Grid Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition />
+        <ColumnDefinition Width="250" />
+      </Grid.ColumnDefinitions>
+      <Grid.RowDefinitions>
+        <RowDefinition Height="35" />
+        <RowDefinition Height="35" />
+        <RowDefinition Height="35" />
+        <RowDefinition Height="35" />
+        <RowDefinition Height="35" />
+        <RowDefinition Height="35" />
+      </Grid.RowDefinitions>
+      <Label Content="Account:" Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Right"
+             Margin="3" />
+      <TextBox x:Name="tbActNmbr" Grid.Column="1" HorizontalAlignment="Left" Height="25" Margin="3" Grid.Row="0"
+               Text="{Binding ActNmbr}" VerticalAlignment="Center" Width="125" />
+      <Label Content="Description:" Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Right"
+             Margin="3" />
+      <TextBox x:Name="tbActDscr" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="1"
+               Text="{Binding ActDscr}" VerticalAlignment="Center" Width="250" />
+      <Label Content="Balance:" Grid.Row="2" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Right"
+             Margin="3" />
+      <Label x:Name="lbActBal" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="2"
+             Content="{Binding ActBal}" ContentStringFormat="C" TextBlock.TextAlignment="Right"
+             VerticalAlignment="Center" Width="125" Background="LightGray" Foreground="DarkGray" />
+      <Label Content="Direct Posting:" Grid.Row="3" Grid.Column="0" VerticalAlignment="Center"
+             HorizontalAlignment="Right" Margin="3" />
+      <CheckBox x:Name="ckCanDirPst" Content="" Grid.Column="1" HorizontalAlignment="Left"
+                IsChecked="{Binding CanPstDrct}" Margin="3" Grid.Row="3" VerticalAlignment="Center" />
+      <Label Content="Debit Balance:" Grid.Row="4" Grid.Column="0" VerticalAlignment="Center"
+             HorizontalAlignment="Right" Margin="3" />
+      <CheckBox x:Name="ckHasDRBal" Content="" Grid.Column="1" HorizontalAlignment="Left"
+                IsChecked="{Binding HasDRBal}" Margin="3" Grid.Row="4" VerticalAlignment="Center" />
+      <Label Content="Active:" Grid.Row="5" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Right"
+             Margin="3" />
+      <CheckBox x:Name="ckIsActive" Content="" Grid.Column="1" HorizontalAlignment="Left"
+                IsChecked="{Binding IsActive}" Margin="3" Grid.Row="5" VerticalAlignment="Center" />
+    </Grid>
+    <Grid Grid.Row="2">
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition />
+        <ColumnDefinition />
+        <ColumnDefinition />
+      </Grid.ColumnDefinitions>
+      <Button Grid.Column="0" Content="Save" Margin="5" Click="BtSave_Click" />
+      <Button Grid.Column="1" Content="New" Margin="5" Click="BtNew_Click" />
+      <Button Grid.Column="2" Content="Delete" Margin="5" Click="BtDelete_Click" />
+    </Grid>
+  </Grid>
+</Window>

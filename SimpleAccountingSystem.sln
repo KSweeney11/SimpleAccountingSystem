@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28306.52
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataLayer", "DataLayer\DataLayer.csproj", "{70FCC8DC-32FC-4379-BD3C-FBBA92B0FF09}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GUI", "GUI\GUI.csproj", "{270F42A0-9017-4C49-B68C-C5F9474813E9}"
+	ProjectSection(ProjectDependencies) = postProject
+		{70FCC8DC-32FC-4379-BD3C-FBBA92B0FF09} = {70FCC8DC-32FC-4379-BD3C-FBBA92B0FF09}
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{70FCC8DC-32FC-4379-BD3C-FBBA92B0FF09}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{70FCC8DC-32FC-4379-BD3C-FBBA92B0FF09}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{70FCC8DC-32FC-4379-BD3C-FBBA92B0FF09}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{70FCC8DC-32FC-4379-BD3C-FBBA92B0FF09}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{270F42A0-9017-4C49-B68C-C5F9474813E9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{270F42A0-9017-4C49-B68C-C5F9474813E9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{270F42A0-9017-4C49-B68C-C5F9474813E9}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{270F42A0-9017-4C49-B68C-C5F9474813E9}.Release|Any CPU.Build.0 = Debug|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8D75EA3F-4434-45B2-BA83-B9B5F85BC3CC}
+	EndGlobalSection
+EndGlobal

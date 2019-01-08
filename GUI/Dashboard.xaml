@@ -1,0 +1,98 @@
+﻿<Window x:Class="GUI.Dashboard"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GUI"
+        mc:Ignorable="d"
+        Title="Dashboard" Width="900" Height="500" WindowStartupLocation="CenterScreen"
+        Style="{StaticResource defaultStyle}" Loaded="Dashboard_Loaded">
+  <Window.Resources>
+
+  </Window.Resources>
+  <Grid Background="#FFE5E5E5">
+    <Grid.ColumnDefinitions>
+      <ColumnDefinition Width="Auto" MinWidth="163" />
+      <ColumnDefinition Width="Auto" MinWidth="731" />
+    </Grid.ColumnDefinitions>
+    <Grid MinWidth="75" Margin="3">
+      <Grid.RowDefinitions>
+        <RowDefinition Height="50" />
+        <RowDefinition Height="50" />
+        <RowDefinition Height="50" />
+        <RowDefinition Height="50" />
+        <RowDefinition Height="50" />
+        <RowDefinition Height="50" />
+      </Grid.RowDefinitions>
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition MinWidth="30" />
+        <ColumnDefinition MinWidth="30" />
+      </Grid.ColumnDefinitions>
+      <Button Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" Margin="3" Click="BtGLJournal_Click">General Journal</Button>
+      <Label Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" Margin="3" VerticalAlignment="Bottom"
+             HorizontalAlignment="Center" Content="Reports" FontSize="14" FontWeight="Bold" />
+      <ComboBox Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2" Margin="3" VerticalAlignment="Center"
+                SelectedIndex="0" x:Name="cbReport">
+        <ComboBoxItem>Trial Balance</ComboBoxItem>
+        <ComboBoxItem>GL Transactions</ComboBoxItem>
+      </ComboBox>
+      <Label Grid.Column="0" Grid.Row="3" Margin="3" VerticalAlignment="Center" HorizontalAlignment="Right"
+             Content="Start:" FontWeight="Bold" />
+      <DatePicker Grid.Column="1" Grid.Row="3" Margin="3" VerticalAlignment="Center" HorizontalAlignment="Center"
+                  x:Name="dtStart" SelectedDateChanged="DtStart_SelectedDateChanged" />
+      <Label Grid.Column="0" Grid.Row="4" Margin="3" VerticalAlignment="Center" HorizontalAlignment="Right"
+             Content="End:" FontWeight="Bold" />
+      <DatePicker Grid.Column="1" Grid.Row="4" Margin="3" VerticalAlignment="Center" HorizontalAlignment="Center"
+                  x:Name="dtEnd" SelectedDateChanged="DtEnd_SelectedDateChanged" />
+      <Button Grid.Column="0" Grid.Row="5" Grid.ColumnSpan="2" Margin="3" IsDefault="True" Click="BtSubmit_Click"
+              Content="Submit" FontSize="14" FontWeight="Bold" />
+    </Grid>
+    <Grid Margin="3,3,130,3" Grid.Column="1">
+      <Grid.RowDefinitions>
+        <RowDefinition Height="50" />
+        <RowDefinition Height="9*" />
+      </Grid.RowDefinitions>
+      <Grid Margin="3">
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="200" />
+          <ColumnDefinition Width="150" />
+          <ColumnDefinition Width="150" />
+          <ColumnDefinition Width="150" />
+        </Grid.ColumnDefinitions>
+        <Label Content="General Ledger Setup" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center"
+               FontSize="14" FontWeight="Bold" />
+        <Button Content="Create" Grid.Column="1" HorizontalAlignment="Center" Width="100" Click="BtCreate_Click" />
+        <Button Content="Update" Grid.Column="2" HorizontalAlignment="Center" Width="100" Click="BtUpdate_Click" />
+        <Button Content="Delete" Grid.Column="3" HorizontalAlignment="Center" Width="100" Click="BtDelete_Click" />
+      </Grid>
+      <DataGrid x:Name="dgGL" Grid.Row="1" CanUserAddRows="False" EnableRowVirtualization="True"
+                RowDetailsVisibilityMode="VisibleWhenSelected" HorizontalGridLinesBrush="#FFBDBDBD"
+                EnableColumnVirtualization="True" IsManipulationEnabled="True" IsSynchronizedWithCurrentItem="True"
+                AutoGenerateColumns="False" Margin="3" IsReadOnly="True">
+        <DataGrid.Columns>
+          <DataGridTextColumn x:Name="actNmbrColumn" Binding="{Binding ActNmbr}" Header="GL Account" Width="Auto" />
+          <DataGridTextColumn x:Name="actDscrColumn" Binding="{Binding ActDscr}" Header="Description" Width="Auto" />
+          <DataGridTextColumn x:Name="actBalColumn" Binding="{Binding ActBal, StringFormat={}{0:C}}" Header="Balance"
+                              Width="Auto">
+            <DataGridTextColumn.ElementStyle>
+              <Style TargetType="TextBlock">
+                <Setter Property="HorizontalAlignment" Value="Right" />
+              </Style>
+            </DataGridTextColumn.ElementStyle>
+          </DataGridTextColumn>
+          <DataGridCheckBoxColumn x:Name="canPstDrctColumn" Binding="{Binding CanPstDrct}" Header="Direct Posting"
+                                  Width="Auto" />
+          <DataGridCheckBoxColumn x:Name="hasDRBalColumn" Binding="{Binding HasDRBal}" Header="Debit Balance"
+                                  Width="Auto" />
+          <DataGridCheckBoxColumn x:Name="isActiveColumn" Binding="{Binding IsActive}" Header="Active" Width="Auto" />
+        </DataGrid.Columns>
+        <DataGrid.ColumnHeaderStyle>
+          <Style TargetType="{x:Type DataGridColumnHeader}">
+            <Setter Property="FontWeight" Value="Bold" />
+            <Setter Property="HorizontalContentAlignment" Value="Center" />
+          </Style>
+        </DataGrid.ColumnHeaderStyle>
+      </DataGrid>
+    </Grid>
+  </Grid>
+</Window>
